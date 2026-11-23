@@ -1,5 +1,11 @@
 # Journal des versions — axta-demo
 
+## [0.6.2-demo] — 23/11/2026 — Déconnexion
+**Corrigé**
+- Le bouton ⏻ ne faisait rien sans code de déverrouillage (cas de la démo). Il ramène maintenant à l'écran d'entrée : « Entrer » pour revenir, « Quitter et effacer cet espace » pour vider le navigateur et revenir à l'accueil. Libellé « Se déconnecter » (navigation et palette ⌘K).
+
+**Documentation** : README, visite guidée de la démo en 9 étapes.
+
 ## [0.6.1-demo] — 23/11/2026 — Version de démonstration publique
 Tirée d'axta 0.6.1.
 

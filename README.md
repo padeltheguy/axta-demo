@@ -11,7 +11,7 @@
 ## Essayer en un clic
 **[Ouvrir la démo en ligne](https://padeltheguy.github.io/axta-demo/)**, puis clique « Explorer la démo ».
 
-Tout se passe dans ton navigateur : rien n'est envoyé sur un serveur, et tu peux modifier, ajouter ou tout effacer sans risque (Paramètres › Tout effacer, puis « Explorer la démo » pour repartir de zéro).
+Tout se passe dans ton navigateur : rien n'est envoyé sur un serveur, et tu peux modifier, ajouter ou tout effacer sans risque : bouton ⏻ › « Quitter et effacer cet espace », puis « Explorer la démo » pour repartir de zéro.
 
 ## Ce qu'est axta
 axta répond à une question simple : **« J'ai reçu de l'argent, où doit aller chaque franc ? »**, puis aide à suivre ce qui compte.
@@ -45,6 +45,19 @@ Douze mois de vie financière d'une photographe et vidéaste indépendante, dat�
 - environ **400 mouvements**, des photos mensuelles pour la courbe de valeur nette, un budget, des projets, des démarches et une liste d'achats.
 
 Le jeu de données est dans [`src/domain/demo.ts`](src/domain/demo.ts).
+
+## Visite guidée (10 minutes)
+1. **Accueil** : « Explorer la démo ». Les données de Sika se chargent dans ton navigateur.
+2. **Tableau de bord** : ce qu'axta suggère (une démarche en retard, un abonnement à résilier, un client à relancer avec un e-mail prêt). Dans « Répartir un montant reçu », tape 500 000, choisis « Freelance, prime, vente » : axta dit où va chaque franc (épargne, dettes, projets, plaisir).
+3. **Rapports** : change la période (3, 6, 12 mois). Revenus et dépenses, où part l'argent, dettes et épargne, courbe de valeur nette. « Données » montre les chiffres, « Exporter en PDF » imprime le rapport.
+4. **Mouvements** : un an de journal. Onglet « À classer » : un dépôt d'espèces et un virement reçu, à qualifier (ils ne comptent pas en revenus tant qu'on ne l'a pas fait).
+5. **Revenus** : les missions avec acompte, solde et reste à encaisser, en CFA, en euros et en dollars.
+6. **Dettes** : tape un montant dans « Verser » puis Entrée. Le versement s'enregistre, crée le mouvement daté et peut être annulé. Onglet « Remboursées » : le prêt soldé garde sa date.
+7. **Épargne** et **Budget** : les coffres (dont « Impôts et cotisations », réflexe de freelance) et les charges ramenées au mois, avec la marge.
+8. **Agenda** : tout ce qui a une date, en liste ou en calendrier, exportable vers Google Agenda ou Apple Calendrier.
+9. **⌘K / Ctrl+K** : aller n'importe où au clavier.
+
+**Se déconnecter** : bouton ⏻ en bas de la navigation. Sur l'écran qui suit, « Entrer » pour revenir, ou « Quitter et effacer cet espace » pour vider le navigateur et repartir de l'accueil. On peut aussi y créer son propre espace vide.
 
 ## Installer chez soi
 Prérequis : [Node.js](https://nodejs.org) 20 ou plus récent.

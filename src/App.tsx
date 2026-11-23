@@ -23,7 +23,8 @@ export default function App() {
   const [unlocked, setUnlocked] = useState(() => sessionStorage.getItem(SESSION) === "1");
   if (settings === undefined) return null;
 
-  const needsLogin = !settings || (!!settings.pinHash && !unlocked);
+  // Sans code non plus, la déconnexion ramène à l'écran d'entrée (on peut y quitter la démo).
+  const needsLogin = !settings || !unlocked;
   const enter = () => { sessionStorage.setItem(SESSION, "1"); setUnlocked(true); };
   const lock = () => { sessionStorage.removeItem(SESSION); setUnlocked(false); };
 

@@ -1,7 +1,7 @@
 {
   "name": "axta-demo",
   "private": true,
-  "version": "0.6.1",
+  "version": "0.6.2",
   "type": "module",
   "description": "axta (version de démonstration) : pilotage de vie local-first, sans IA, avec des données fictives.",
   "scripts": {

@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { AnimatePresence, motion, useAnimationControls, useReducedMotion } from "motion/react";
 import { Eye, EyeOff, Check } from "lucide-react";
 import { Convergence } from "./Convergence";
-import { db, importBackup, requestPersistence } from "@/db/db";
+import { db, importBackup, requestPersistence, wipe } from "@/db/db";
 import { readBackupFile } from "@/db/backup";
 import { defaultSettings } from "@/domain/defaults";
 import { demoData } from "@/domain/demo";
@@ -64,7 +64,7 @@ export function Login({ settings, onEnter }: { settings: Settings | undefined; o
         <motion.form className="login-box" onSubmit={submit} variants={stagger} initial="hidden" animate="show" noValidate>
           <motion.h1 variants={item}>{isNew ? "Bienvenue" : `Bon retour${first ? `, ${first}` : ""}`}</motion.h1>
           <motion.p variants={item} className="sub" style={{ marginBottom: 26 }}>
-            {isNew ? "Crée ton espace. Tes données restent sur cet appareil." : settings?.pinHash ? "Saisis ton code pour déverrouiller axta." : "Ton espace est prêt."}
+            {isNew ? "Crée ton espace. Tes données restent sur cet appareil." : settings?.pinHash ? "Saisis ton code pour déverrouiller axta." : "Ton espace est prêt. Entre pour continuer, ou efface-le pour revenir à l'accueil."}
           </motion.p>
           {isNew && (
             <motion.p variants={item} className="login-demo">
@@ -102,7 +102,7 @@ export function Login({ settings, onEnter }: { settings: Settings | undefined; o
               <AnimatePresence mode="wait" initial={false}>
                 {ok ? <motion.span key="ok" initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.24, ease: [0.34, 1.56, 0.64, 1] }}><Check size={18} /></motion.span>
                   : busy ? <motion.span key="busy" className="spinner" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} />
-                  : <motion.span key="txt" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>{isNew ? "Créer mon espace" : "Déverrouiller"}</motion.span>}
+                  : <motion.span key="txt" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>{isNew ? "Créer mon espace" : settings?.pinHash ? "Déverrouiller" : "Entrer"}</motion.span>}
               </AnimatePresence>
             </motion.button>
           </motion.div>
@@ -116,6 +116,11 @@ export function Login({ settings, onEnter }: { settings: Settings | undefined; o
               </motion.div>
               <input ref={file} type="file" accept="application/json" hidden onChange={(e) => { const f = e.target.files?.[0]; e.target.value = ""; if (f) importFile(f); }} />
             </>
+          )}
+          {!isNew && (
+            <motion.div variants={item} className="login-alt" style={{ marginTop: 14 }}>
+              <button type="button" className="btn" onClick={async () => { if (confirm("Effacer cet espace de ce navigateur et revenir à l'accueil ?")) await wipe(); }}>Quitter et effacer cet espace</button>
+            </motion.div>
           )}
           <motion.p variants={item} className="login-foot">
             Tes données restent sur cet appareil. Seuls les taux de change utilisent internet. La synchronisation et le partage avec ton foyer arriveront plus tard, en option.

@@ -14,7 +14,7 @@ export function CommandPalette({ onClose, onLock }: { onClose: () => void; onLoc
     ...NAV.map((i) => ({ label: i.label, hint: "Aller", icon: i.icon, run: () => nav(i.path) })),
     { label: "Sauvegarder mes données", hint: "Action", icon: Download, run: () => { downloadBackup(); } },
     { label: "Replier / déplier la navigation", hint: "⌘B", icon: PanelLeft, run: () => window.dispatchEvent(new KeyboardEvent("keydown", { key: "b", ctrlKey: true })) },
-    { label: "Verrouiller axta", hint: "Action", icon: Lock, run: onLock },
+    { label: "Se déconnecter", hint: "Action", icon: Lock, run: onLock },
   ], [nav, onLock]);
   const norm = (s: string) => s.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
   const matches = all.filter((c) => norm(c.label).includes(norm(q)));

@@ -77,7 +77,7 @@ export function Shell({ children, onLock }: { children: ReactNode; onLock: () =>
         <div className="side-user" title={s.name}>
           <span className="avatar">{initials}</span>
           <span className="who" style={{ flex: 1, overflow: "hidden", textOverflow: "ellipsis" }}>{s.name || "Mon espace"}</span>
-          <button className="icon-btn who" onClick={onLock} aria-label="Verrouiller" style={{ width: 26, height: 26, fontSize: 12 }}>⏻</button>
+          <button className="icon-btn who" onClick={onLock} aria-label="Se déconnecter" title="Se déconnecter" style={{ width: 26, height: 26, fontSize: 12 }}>⏻</button>
         </div>
       </motion.nav>
       <main className="panel">
