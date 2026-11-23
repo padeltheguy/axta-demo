@@ -1,0 +1,37 @@
+{
+  "name": "axta-demo",
+  "private": true,
+  "version": "0.6.1",
+  "type": "module",
+  "description": "axta (version de démonstration) : pilotage de vie local-first, sans IA, avec des données fictives.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "dexie": "^4.4.7",
+    "dexie-react-hooks": "^1.1.7",
+    "lucide-react": "^1.77.0",
+    "motion": "^11.18.2",
+    "pdfjs-dist": "^4.10.38",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.6",
+    "recharts": "^2.15.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "fake-indexeddb": "^6.2.8",
+    "typescript": "~5.6",
+    "vite": "^6.4.6",
+    "vite-plugin-pwa": "^0.21.2",
+    "vitest": "^3.2.7"
+  }
+}

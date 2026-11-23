@@ -1,0 +1,13 @@
+node_modules
+dist
+dev-dist
+*.local
+.env*
+!.env.example
+.DS_Store
+*.tsbuildinfo
+.tmp/
+*.bak
+# Sauvegardes : ne jamais les versionner dans ce dépôt public
+*sauvegarde*.json
+data/
